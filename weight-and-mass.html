@@ -8,6 +8,72 @@
 </head>
 <body>
     <h1>Convert Weight and Mass</h1>
-    <button onclick="location.href='index.html'">Back to the Home Page</button>
+
+
+<div class="converter">
+<label for="unit1">Select a Unit to start with:</label>
+<select id="unit1">
+<option value="gramm">Gramm</option>
+<option  value="kilogramm">Kilogram</option>
+<option value="ton">Ton</option>
+</select>
+<br>
+<br>
+<label for="input">Insert a Number</label>
+<input id="input" type="number" placeholder="Insert Number">
+<br><br>
+<label for="unit2">Select a Unit to Convert into</label>
+<select id="unit2">
+<option value="gramm">Gramm</option>
+<option  value="kilogramm">Kilogram</option>
+<option value="ton">Ton</option>
+</select>
+
+<br><br>
+<p id="output"></p>
+<br>
+
+    </div>
+
+<button id="submit" onclick="submitValue()">Convert</button>
+
+<br>
+
+    <button onclick="location.href='index.html'" id="goBackToHome">Back to the Home Page</button>
+
+
+    <script>
+function submitValue() {
+    const inputEl = document.getElementById("input");
+    const unit1 = document.getElementById("unit1").value;
+    const unit2 = document.getElementById("unit2").value;
+    const outputEl = document.getElementById("output");
+
+    const inputVal = parseFloat(inputEl.value);
+ 
+    const toMinutes = {
+        gramm: 1,
+        kilogramm: 1000,
+        ton: 1000000
+    };
+
+    const minutesValue = inputVal * (toMinutes[unit1] || 1);
+    const result = minutesValue / (toMinutes[unit2] || 1);
+
+    const formatted = Number.isInteger(result) ? result : +result.toFixed(6);
+
+    const labelUnit = { gramm: " Gramms", kilogramm: " Kilogramms", ton: " Tonss" };
+    const text1 = labelUnit[unit1] || unit1;
+    const text2 = labelUnit[unit2] || unit2;
+
+
+
+    outputEl.innerHTML = inputVal + text1 + " are " + formatted + text2
+
+
+}
+
+    </script>
+
 </body>
 </html>

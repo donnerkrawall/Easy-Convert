@@ -8,6 +8,88 @@
 </head>
 <body>
     <h1>Convert Length & Distance</h1>
-    <button onclick="location.href='index.html'">Back to the Home Page</button>
+
+
+    <div class="converter">
+<label for="unit1">Select a Unit to start with:</label>
+<select id="unit1">
+<option value="centimeter">Centimeter</option>
+<option value="dezimeter">Dezimeter</option>
+<option  value="meter">Meter</option>
+<option value="kilometer">Kilometer</option>
+</select>
+<br>
+<br>
+<label for="input">Insert a Number</label>
+<input id="input" type="number" placeholder="Insert Number">
+<br><br>
+<label for="unit2">Select a Unit to Convert into</label>
+<select id="unit2">
+<option value="centimeter">Centimeter</option>
+<option value="dezimeter">Dezimeter</option>
+<option  value="meter">Meter</option>
+<option value="kilometer">Kilometer</option>
+</select>
+
+<br><br>
+<p id="output"></p>
+<br>
+
+
+</div>
+
+<button id="submit" onclick="submitValue()">Convert</button>
+
+<br>
+
+    <button onclick="location.href='index.html'" id="goBackToHome">Back to the Home Page</button>
+
+    <script>
+
+function submitValue() {
+
+const inputEl = document.getElementById("input");
+const unit1 = document.getElementById("unit1").value
+const unit2 = document.getElementById("unit2").value
+const outputEl = document.getElementById("output")
+
+const inputVal = parseFloat(inputEl.value);
+
+const toMeter = {
+    centimeter: 1,
+    dezimeter: 10,
+    meter: 100,
+    kilometer: 100000,
+}
+
+const labelUnit = {
+
+    centimeter: " Centimeter",
+    dezimeter: " Dezimeter",
+    meter: " Meter",
+    kilometer: " Kilometer",
+
+}
+
+let text1 = (labelUnit[unit1] || unit1 );
+let text2 = (labelUnit[unit2] || unit2 )
+
+
+const metersValue = inputVal * (toMeter[unit1] || 1);
+const result = metersValue / (toMeter[unit2] || 1);
+
+outputEl.innerHTML = inputVal + text1 + " are " + result + text2
+
+
+
+
+
+
+}
+
+
+
+
+    </script>
 </body>
 </html>
