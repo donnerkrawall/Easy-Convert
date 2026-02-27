@@ -93,3 +93,72 @@ font-size: 120%;
 
 
 }
+
+select {
+  font-size: 1.1em;
+  padding: 12px 15px;
+  border: 2px solid #00d4ff;
+  border-radius: 8px;
+  background-color: #16213e;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 200px;
+  margin: 10px;
+}
+
+select:hover {
+  border-color: #7f39fb;
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+}
+
+select:focus {
+  outline: none;
+  border-color: #7f39fb;
+  box-shadow: 0 0 20px rgba(127, 57, 251, 0.5);
+
+}
+
+input[type="number"] {
+  font-size: 1.1em;
+  padding: 12px 15px;
+  border: 2px solid #00d4ff;
+  border-radius: 8px;
+  background-color: #16213e;
+  color: white;
+  text-align: center;
+  transition: all 0.3s ease;
+  min-width: 200px;
+  margin: 10px;
+}
+
+input[type="number"]:hover {
+  border-color: #7f39fb;
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+}
+
+input[type="number"]:focus {
+  outline: none;
+  border-color: #7f39fb;
+  box-shadow: 0 0 20px rgba(127, 57, 251, 0.5);
+}
+
+input[type="number"]::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+#output {
+
+font-size: 1.55em;
+
+
+}
+
+#input {
+
+
+
+
+text-align: center;
+ font-size: 102%;
+}

@@ -20,7 +20,8 @@
 </select>
 <br>
 <br>
-<input id="input" type="number" placeholder="Insert Number" style="text-align: center; font-size: 102%;">
+<label for="input">Insert a Number</label>
+<input id="input" type="number" placeholder="Insert Number">
 <br><br>
 <label for="unit2">Select a Unit to Convert into</label>
 <select id="unit2">
@@ -54,11 +55,7 @@ function submitValue() {
     const outputEl = document.getElementById("output");
 
     const inputVal = parseFloat(inputEl.value);
-    if (isNaN(inputVal)) {
-        outputEl.textContent = "Please enter a valid number";
-        return;
-    }
-
+ 
     const toMinutes = {
         minutes: 1,
         hours: 60,
