@@ -69,7 +69,16 @@ function submitValue() {
     const result = minutesValue / (toMinutes[unit2] || 1);
 
     const formatted = Number.isInteger(result) ? result : +result.toFixed(6);
-    outputEl.textContent = formatted;
+
+    const labelUnit = { minutes: " Minutes", hours: " Hours", days: " Days" };
+    const text1 = labelUnit[unit1] || unit1;
+    const text2 = labelUnit[unit2] || unit2;
+
+
+
+    outputEl.innerHTML = inputVal + text1 + " are " + formatted + text2
+
+
 }
 
     </script>
