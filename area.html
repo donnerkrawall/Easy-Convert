@@ -3,11 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Easy-Units</title>
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
     <h1>Convert Area</h1>
+    
+
+    <div class="converter">
+<label for="unit1">Select a Unit to start with:</label>
+<select id="unit1">
+<option value="squareCentimeter">Square Centimeter</option>
+<option value="squareDezimeter">Square Dezimeter</option>
+<option  value="squareMeter">Square Meter</option>
+<option value="hektar">Hektar</option>
+</select>
+<br>
+<br>
+<label for="input">Insert a Number</label>
+<input id="input" type="number" placeholder="Insert Number">
+<br><br>
+<label for="unit2">Select a Unit to Convert into</label>
+<select id="unit2">
+<option value="squareCentimeter">Square Centimeter</option>
+<option value="squareDezimeter">Square Dezimeter</option>
+<option  value="squareMeter">Square Meter</option>
+<option value="hektar">Hektar</option>
+</select>
+
+<br><br>
+<p id="output"></p>
+<br>
+
+
+</div>
+
+<button id="submit" onclick="submitValue()">Convert</button>
+
+<br>
+
     <button onclick="location.href='index.html'" id="goBackToHome">Back to the Home Page</button>
+
+    <script>
+
+function submitValue() {
+
+const inputEl = document.getElementById("input");
+const unit1 = document.getElementById("unit1").value
+const unit2 = document.getElementById("unit2").value
+const outputEl = document.getElementById("output")
+
+const inputVal = parseFloat(inputEl.value);
+
+const toMeter = {
+    squareCentimeter: 1,
+    squareDezimeter: 1000,
+    squareMeter: 10000,
+    hektar: 100000000,
+    
+}
+
+const labelUnit = {
+    
+
+    squareCentimeter: " Square Centimeter",
+    squareDezimeter: " Square Dezimeter",
+    squareMeter: " Square Meter",
+    hektar: " Hektar",
+
+}
+
+let text1 = (labelUnit[unit1] || unit1 );
+let text2 = (labelUnit[unit2] || unit2 )
+
+
+const metersValue = inputVal * (toMeter[unit1] || 1);
+const result = metersValue / (toMeter[unit2] || 1);
+
+outputEl.innerHTML = inputVal + text1 + " are " + result + text2
+
+
+
+
+
+
+}
+
+
+</script>
 </body>
 </html>
